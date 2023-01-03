@@ -7,7 +7,7 @@ def user_profile_path(instance, filename):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to= user_profile_path, default="default.jpg")
+    image = models.ImageField(upload_to= user_profile_path, default="avatar.jpg")
     bio = models.TextField(blank=True)
 
     def __str__(self):

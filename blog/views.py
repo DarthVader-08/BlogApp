@@ -11,8 +11,15 @@ def post_list_all(request):
     }
     return render (request, "blog/post_list.html", context )
 
-def post_list(request):
+def post_list_published(request):
     qs = Post.objects.filter(status='p')
+    context = {
+        'object_list' : qs
+    }
+    return render (request, "blog/post_list.html", context )
+
+def post_list_draft(request):
+    qs = Post.objects.filter(status='d')
     context = {
         'object_list' : qs
     }

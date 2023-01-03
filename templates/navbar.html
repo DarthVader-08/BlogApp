@@ -10,21 +10,25 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
+
             <li class="nav-item active">
-                
+
                 <a class="nav-link" href="{% url 'blog:list_all' %}">Home</a>
             </li>
             {% if request.user.is_superuser %}
 
             <li class="nav-item active">
-                
-                <a class="nav-link" href="{% url 'blog:list' %}">Published</a>
+
+                <a class="nav-link" href="{% url 'blog:list_published' %}">Published</a>
             </li>
+            <li class="nav-item active">
+
+                <a class="nav-link" href="{% url 'blog:list_draft' %}">Drafts</a>
 
             {% endif %}
 
             <li class="nav-item active">
-                <a class="nav-link" href="https://github.com/DarthVader-08" target="_blank" rel="noopener">About</a>
+                <a class="nav-link" href="https://github.com/cemispirli" target="_blank" rel="noopener">About</a>
             </li>
         </ul>
 
@@ -34,14 +38,14 @@
                 <a class="nav-link" href="{% url 'blog:create' %}">New Post</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link"   
+                <a class="nav-link"
                 href = "{% url 'profile' %}">
                 Profile
             </a>
             </li>
             {% if request.user.is_superuser %}
             <li class="nav-item active">
-                <a class="nav-link"   
+                <a class="nav-link"
                 href = "{% url 'user_list' %}">
                 Users List
             </a>
@@ -53,7 +57,7 @@
               <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
             </li>
             {% else %}
-            
+
             <li class="nav-item active">
                 {% comment %} {% url 'register' %} {% endcomment %}
                 <a class="nav-link" href="{% url 'register' %}">Register</a>
@@ -66,5 +70,4 @@
         </ul>
     </div>
 </nav>
-
 

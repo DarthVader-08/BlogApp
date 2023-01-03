@@ -8,7 +8,7 @@
     <div class="col-4">
         <a href="{% url 'blog:detail' obj.slug %}" style="text-decoration:none;   color: inherit;      ">
             
-        <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem; height: 25rem; ">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem; min-height:min-content;">
             <img src="{{ obj.image.url }}" class="card-img-top" alt="post_image" style="width:15rem; height: 11rem; align-self:center;">
             <hr>
             <div class="card-body">
@@ -21,8 +21,12 @@
                     <span><i class="far fa-heart ml-2"></i>{{ obj.like_count }}</span>
                 <p class="card-text"><small>
                         <!-- Posted {{ obj.publish_date|timesince }} ago. -->
-                        Created {{ obj.publish_date }} 
+                        Created {{ obj.publish_date }}
                     </small>
+                </p>
+                <p class="card-text"><small style="text-transform: capitalize; " >
+                    Created by {{ obj.author}}
+                </small>
                 </p>
 
                 </p>
@@ -34,3 +38,5 @@
     {% endfor %}
 </div>
 {% endblock content %}
+
+
